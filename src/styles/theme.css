@@ -1,0 +1,86 @@
+/* Black & Purple theme for Starlight */
+
+/* ── Dark mode: Black / VS Purple ── */
+:root[data-theme='dark'] {
+  --sl-color-accent-low:     #1e1030;
+  --sl-color-accent:         #C586C0;  /* VS Code keyword purple */
+  --sl-color-accent-high:    #f0d0ee;
+
+  --sl-color-white:          #f0f0f0;
+  --sl-color-gray-1:         #d0d0d0;
+  --sl-color-gray-2:         #a0a0a0;
+  --sl-color-gray-3:         #707070;
+  --sl-color-gray-4:         #3a3a3a;
+  --sl-color-gray-5:         #222222;
+  --sl-color-gray-6:         #111111;
+  --sl-color-black:          #090909;
+
+  --sl-color-bg:             #111111;
+  --sl-color-bg-nav:         #090909;
+  --sl-color-bg-sidebar:     #090909;
+  --sl-color-hairline:       #2a2a2a;
+
+  --sl-color-text:           #f0f0f0;
+  --sl-color-text-accent:    #C586C0;
+  --sl-color-bg-inline-code: #1e1e1e;
+
+  --theme-heading:           #C586C0;
+  --theme-active:            #C586C0;
+  --theme-active-bg:         #2a1535;
+  --theme-link:              #d49ed0;
+  --theme-code-text:         #C586C0;
+}
+
+/* ── Light mode: Light Gray / VS Purple ── */
+:root[data-theme='light'] {
+  --sl-color-accent-low:     #f0e0f5;
+  --sl-color-accent:         #5C2D91;  /* VS brand deep purple */
+  --sl-color-accent-high:    #2a0a50;
+
+  --sl-color-white:          #1a1a1a;
+  --sl-color-gray-1:         #2e2e2e;
+  --sl-color-gray-2:         #555555;
+  --sl-color-gray-3:         #888888;
+  --sl-color-gray-4:         #c0c0c0;
+  --sl-color-gray-5:         #e0e0e0;
+  --sl-color-gray-6:         #f5f5f5;
+  --sl-color-black:          #fafafa;
+
+  --sl-color-bg:             #f5f5f5;
+  --sl-color-bg-nav:         #ebebeb;
+  --sl-color-bg-sidebar:     #ebebeb;
+  --sl-color-hairline:       #d0d0d0;
+
+  --sl-color-text:           #1a1a1a;
+  --sl-color-text-accent:    #5C2D91;
+  --sl-color-bg-inline-code: #e8e0f0;
+
+  --theme-heading:           #5C2D91;
+  --theme-active:            #5C2D91;
+  --theme-active-bg:         #e8d5f5;
+  --theme-link:              #6B2EA8;
+  --theme-code-text:         #5C2D91;
+}
+
+/* ── Shared rules ── */
+
+[data-has-sidebar] .sidebar-content a[aria-current="page"] {
+  background-color: var(--theme-active-bg);
+  color: var(--theme-active);
+  border-inline-start-color: var(--theme-active);
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  color: var(--theme-heading);
+}
+
+.sl-markdown-content code {
+  color: var(--theme-code-text);
+  background-color: var(--sl-color-bg-inline-code);
+}
+
+.sl-markdown-content a {
+  color: var(--theme-link);
+}

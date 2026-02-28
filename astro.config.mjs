@@ -1,7 +1,6 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
+import starlightBlog from 'starlight-blog';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://tdhatcher.github.io',
@@ -13,7 +12,8 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				alt: 'Todd Hatcher',
 			},
-			customCss: ['./src/styles/monokai.css'],
+			plugins: [starlightBlog({ title: 'Articles' })],
+			customCss: ['./src/styles/theme.css'],
 			components: {
 				Sidebar: './src/components/SidebarHeader.astro',
 			},
@@ -22,16 +22,14 @@ export default defineConfig({
 			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
 			sidebar: [
 				{ label: 'About Me', slug: 'index' },
+				{ label: 'Articles', link: '/blog/' },
 				{
-					label: 'AI Tooling Journey',
-					autogenerate: { directory: 'ai-tooling' },
+					label: 'Guides',
+					autogenerate: { directory: 'guides' },
 				},
 				{
-					label: 'Articles',
-					items: [
-						{ label: 'Overview', slug: 'articles/overview' },
-						{ label: 'Comparing Static Site Generators', slug: 'articles/static-site-generator-exploration' },
-					],
+					label: 'References',
+					autogenerate: { directory: 'references' },
 				},
 			],
 		}),
