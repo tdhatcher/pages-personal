@@ -2,6 +2,15 @@
 import Default from '@astrojs/starlight/components/Sidebar.astro';
 import type { Props } from '@astrojs/starlight/props';
 import profile from '../assets/profile_120.jpg';
+
+const currentPath = Astro.url.pathname;
+const isBlogPage = currentPath.startsWith('/blog');
+const navLinks = [
+  { label: 'About Me', href: '/' },
+  { label: 'Articles', href: '/blog/' },
+  { label: 'Guides', href: '/guides/' },
+  { label: 'References', href: '/references/' },
+];
 ---
 
 <div class="sidebar-profile">
@@ -9,6 +18,23 @@ import profile from '../assets/profile_120.jpg';
   <p class="sidebar-profile__name">Todd Hatcher</p>
   <p class="sidebar-profile__tagline">Software Developer · AI Tooling</p>
 </div>
+
+{isBlogPage && (
+  <>
+    <nav class="sidebar-nav" aria-label="Main">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={['sidebar-nav__link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <hr class="sidebar-nav__divider" />
+  </>
+)}
+
 <Default {...Astro.props}><slot /></Default>
 
 <style>
@@ -42,5 +68,38 @@ import profile from '../assets/profile_120.jpg';
     font-size: 0.75rem;
     color: var(--sl-color-gray-3);
     margin: 0;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+    gap: 0.1rem;
+  }
+
+  .sidebar-nav__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.3rem;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .sidebar-nav__link:hover {
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-gray-5);
+  }
+
+  .sidebar-nav__link.active {
+    color: var(--sl-color-accent);
+    background-color: var(--theme-active-bg);
+  }
+
+  .sidebar-nav__divider {
+    border: none;
+    border-top: 1px solid var(--sl-color-hairline);
+    margin: 0.75rem 0.5rem;
   }
 </style>
