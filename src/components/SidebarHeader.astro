@@ -1,0 +1,46 @@
+---
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+import type { Props } from '@astrojs/starlight/props';
+import profile from '../assets/profile_120.jpg';
+---
+
+<div class="sidebar-profile">
+  <img src={profile.src} alt="Todd Hatcher" class="sidebar-profile__photo" />
+  <p class="sidebar-profile__name">Todd Hatcher</p>
+  <p class="sidebar-profile__tagline">Software Developer · AI Tooling</p>
+</div>
+<Default {...Astro.props}><slot /></Default>
+
+<style>
+  .sidebar-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1rem 1rem;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--sl-color-hairline);
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .sidebar-profile__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sl-color-accent);
+  }
+
+  .sidebar-profile__name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--sl-color-white);
+    margin: 0;
+  }
+
+  .sidebar-profile__tagline {
+    font-size: 0.75rem;
+    color: var(--sl-color-gray-3);
+    margin: 0;
+  }
+</style>

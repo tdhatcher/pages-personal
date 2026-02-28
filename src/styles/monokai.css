@@ -1,0 +1,52 @@
+/* Monokai theme for Starlight */
+
+:root {
+  --sl-color-accent-low:     #2d2a1e;
+  --sl-color-accent:         #e6db74;  /* Monokai yellow */
+  --sl-color-accent-high:    #f8f8f2;
+
+  --sl-color-white:          #f8f8f2;
+  --sl-color-gray-1:         #cfcfc2;
+  --sl-color-gray-2:         #a8a8a0;
+  --sl-color-gray-3:         #75715e;  /* Monokai comment */
+  --sl-color-gray-4:         #49483e;
+  --sl-color-gray-5:         #3d3b35;
+  --sl-color-gray-6:         #272822;  /* Monokai background */
+  --sl-color-black:          #1e1f1c;
+
+  --sl-color-bg:             #272822;
+  --sl-color-bg-nav:         #1e1f1c;
+  --sl-color-bg-sidebar:     #1e1f1c;
+  --sl-color-hairline:       #49483e;
+
+  --sl-color-text:           #f8f8f2;
+  --sl-color-text-accent:    #e6db74;
+
+  /* Code blocks */
+  --sl-color-bg-inline-code: #3d3b35;
+}
+
+/* Active sidebar link highlight in Monokai green */
+[data-has-sidebar] .sidebar-content a[aria-current="page"] {
+  background-color: #3d3b35;
+  color: #a6e22e;
+  border-inline-start-color: #a6e22e;
+}
+
+/* Headings in Monokai cyan */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  color: #66d9e8;
+}
+
+/* Inline code */
+.sl-markdown-content code {
+  color: #e6db74;
+  background-color: #3d3b35;
+}
+
+/* Links */
+.sl-markdown-content a {
+  color: #66d9e8;
+}
